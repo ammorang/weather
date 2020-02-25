@@ -11,8 +11,6 @@ export class WeatherService {
     try {
       const data:any = await this.api.doGet(`data/2.5/${type}?lat=${lat}&lon=${lon}`).toPromise();
 
-      console.log(data);
-      
       return data;
     } catch(err) {
       console.log('error: ', err);

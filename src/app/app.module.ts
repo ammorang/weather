@@ -6,10 +6,14 @@ import { AppComponent } from './app.component';
 import { DataService } from './services/data.service';
 import { WeatherService } from './services/weather.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CurrentTempComponent } from './pages/current-temp/current-temp.component';
+import { FiveDayForecastComponent } from './pages/five-day-forecast/five-day-forecast.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CurrentTempComponent,
+    FiveDayForecastComponent
   ],
   imports: [
     BrowserModule,

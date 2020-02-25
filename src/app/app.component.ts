@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from './services/weather.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,16 +13,13 @@ export class AppComponent implements OnInit {
     lon: null
   };
 
-  constructor(private weatherService: WeatherService) {}
+  constructor(private router: Router,
+              private weatherService: WeatherService) {}
+
+  activateTab(tab: string) {
+    this.router.navigate([`/${tab}`]);
+  }
 
   ngOnInit() {
-    navigator.geolocation.getCurrentPosition(async (l) => {
-      this.location.lat = l.coords.latitude;
-      this.location.lon = l.coords.longitude;
-      
-      this.weatherService.getWeatherData('weather', this.location.lat, this.location.lon);
-      this.weatherService.getWeatherData('forecast', this.location.lat, this.location.lon);
-    });
-
   }
 }

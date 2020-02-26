@@ -24,7 +24,7 @@ export class CurrentTempComponent implements OnInit {
       
       this.weatherService.getWeatherData('weather', this.location.lat, this.location.lon)
         .then((res: any) => { 
-          this.currentTemp = convertToFahrenheit(res.main.temp);
+          this.currentTemp = res.main.temp;
           this.currentArea = res.name;
         })
     });

@@ -8,12 +8,14 @@ import { WeatherService } from './services/weather.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CurrentTempComponent } from './pages/current-temp/current-temp.component';
 import { FiveDayForecastComponent } from './pages/five-day-forecast/five-day-forecast.component';
+import { TempConverterPipe } from './pipes/temp-converter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     CurrentTempComponent,
-    FiveDayForecastComponent
+    FiveDayForecastComponent,
+    TempConverterPipe
   ],
   imports: [
     BrowserModule,

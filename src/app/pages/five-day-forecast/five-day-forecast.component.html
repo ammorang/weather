@@ -1,6 +1,6 @@
 <div *ngFor="let f of forecast">
   <p>{{ f.dt_txt | date : 'fullDate' }}</p>
   <p>{{ f.dt_txt | date : 'shortTime' }}</p>
-  <p>{{ f.main.temp }}</p> 
+  <p>{{ f.main.temp | tempConverter | number : '1.2-2' }} &deg;F</p> 
   <p><img src="https://openweathermap.org/img/wn/{{ f.weather[0].icon }}.png"></p>
 </div>

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DataService } from './data.service';
+import { CurrentTempComponent } from '../pages/current-temp/current-temp.component';
 
 @Injectable({
   providedIn: 'root'
@@ -17,3 +18,4 @@ export class WeatherService {
     }
   }
 }
+

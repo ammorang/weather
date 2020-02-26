@@ -6,9 +6,11 @@ h3 {
   align-items: center;
   display: flex;
   justify-content: center;
+  border-bottom: 1px solid black;
+  margin: 0 auto;
+  width: 300px;
 }
 
 div {
-  border-bottom: 1px solid black;
   text-align: center;
 }

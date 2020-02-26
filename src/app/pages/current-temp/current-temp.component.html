@@ -1,11 +1,11 @@
 <h3>Current temperature in your area</h3>
-<div>
+<div *ngIf="currentInfo">
   <p>
     <span>Your area: </span>
-    <span>{{ currentArea }}</span>
+    <span>{{ currentInfo.name }}</span>
   </p>
   <p>
     <span>Temperature: </span>
-    <span>{{ currentTemp | tempConverter | number : '1.2-2'}} &deg;F</span>
+    <span>{{ currentInfo.main.temp | tempConverter | number : '1.2-2'}} &deg;F</span>
   </p>
 </div>

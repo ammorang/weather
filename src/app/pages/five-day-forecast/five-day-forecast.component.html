@@ -1,6 +1,9 @@
-<div *ngFor="let f of forecast">
-  <p>{{ f.dt_txt | date : 'fullDate' }}</p>
-  <p>{{ f.dt_txt | date : 'shortTime' }}</p>
-  <p>{{ f.main.temp | tempConverter | number : '1.2-2' }} &deg;F</p> 
-  <p><img src="https://openweathermap.org/img/wn/{{ f.weather[0].icon }}.png"></p>
-</div>
+<section *ngIf="forecast">
+  <h3>Forecast for {{ city }}</h3>
+  <div *ngFor="let f of forecast">
+    <p>{{ f.dt_txt | date : 'fullDate' }} {{ f.dt_txt | date : 'shortTime' }}</p>
+    <p class="icon">{{ f.main.temp | tempConverter | number : '1.2-2' }} &deg;F
+      <img src="https://openweathermap.org/img/wn/{{ f.weather[0].icon }}.png"><img>
+    </p>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+h3 {
+  text-align: center;
+}
+
+.icon {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+div {
+  border-bottom: 1px solid black;
+  text-align: center;
+}

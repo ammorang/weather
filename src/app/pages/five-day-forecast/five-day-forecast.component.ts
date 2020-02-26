@@ -12,6 +12,7 @@ export class FiveDayForecastComponent implements OnInit {
     lon: null
   };
   public forecast: [] = [];
+  public city: string = null;
 
   constructor(private weatherService: WeatherService) { }
 
@@ -23,6 +24,7 @@ export class FiveDayForecastComponent implements OnInit {
       this.weatherService.getWeatherData('forecast', this.location.lat, this.location.lon)
         .then((res: any) => {
           this.forecast = res.list;
+          this.city = res.city.name;
         });
     });
   }

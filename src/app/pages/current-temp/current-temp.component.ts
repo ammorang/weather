@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from 'src/app/services/weather.service';
-import { convertToFahrenheit } from 'src/app/utils';
 
 @Component({
   selector: 'app-current-temp',
@@ -12,20 +11,18 @@ export class CurrentTempComponent implements OnInit {
     lat: null,
     lon: null
   };
-  public currentTemp: number;
-  public currentArea: string;
+  public currentInfo: any = null;
 
   constructor(private weatherService: WeatherService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     navigator.geolocation.getCurrentPosition(async (l) => {
       this.location.lat = l.coords.latitude;
       this.location.lon = l.coords.longitude;
       
       this.weatherService.getWeatherData('weather', this.location.lat, this.location.lon)
         .then((res: any) => { 
-          this.currentTemp = res.main.temp;
-          this.currentArea = res.name;
+          this.currentInfo = res;
         })
     });
   }

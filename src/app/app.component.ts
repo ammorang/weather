@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { WeatherService } from './services/weather.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,19 +6,10 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  location = {
-    lat: null,
-    lon: null
-  };
-
-  constructor(private router: Router,
-              private weatherService: WeatherService) {}
+export class AppComponent {
+  constructor(private router: Router) {}
 
   activateTab(tab: string) {
     this.router.navigate([`/${tab}`]);
-  }
-
-  ngOnInit() {
   }
 }

@@ -16,7 +16,7 @@ export class CurrentTempComponent implements OnInit {
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
-    navigator.geolocation.getCurrentPosition(async (l) => {
+    navigator.geolocation.getCurrentPosition((l) => {
       this.location.lat = l.coords.latitude;
       this.location.lon = l.coords.longitude;
       

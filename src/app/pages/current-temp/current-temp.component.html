@@ -11,3 +11,9 @@
     </p>
   </div>
 </section>
+<div *ngIf="showError">
+  <p>
+    Status: {{ error.status }}:
+    {{ error.error.message }} 
+  </p>
+</div>

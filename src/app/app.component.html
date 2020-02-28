@@ -1,6 +1,6 @@
 <h1>Weather</h1>
 <nav>
-  <button (click)="activateTab('currentTemp')">Current Temperature</button>
-  <button (click)="activateTab('fiveDayForecast')">5 Day Forecast</button>
+  <button routerLink="/currentTemp">Current Temperature</button>
+  <button routerLink="/fiveDayForecast">5 Day Forecast</button>
 </nav>
 <router-outlet></router-outlet>

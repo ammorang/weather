@@ -7,7 +7,6 @@ import { WeatherService } from 'src/app/services/weather.service';
   styleUrls: ['./five-day-forecast.component.css']
 })
 export class FiveDayForecastComponent implements OnInit {
-  private location: any;
   public forecast: [] = [];
   public city: string = null;
   public error: any = null;
@@ -15,25 +14,28 @@ export class FiveDayForecastComponent implements OnInit {
 
   constructor(private weatherService: WeatherService) { }
 
-  ngOnInit(): void {
-    navigator.geolocation.getCurrentPosition((l) => {
-      this.location = {
-        lat: l.coords.latitude,
-        lon: l.coords.longitude
-      }
-      
-      this.weatherService.getWeatherData('forecast', this.location.lat, this.location.lon)
-        .then((res: any) => {
-          if (res.error) {
-            this.showError = true;
-            this.error = res;
-          }
-          else {
-            this.forecast = res.list;
-            this.city = res.city.name;
-          }
-        });
-    });
+  getLocation() {
+    this.weatherService.getLocation()
+      .then((loc: any) => {
+        this.getForecast(loc.coords.longitude, loc.coords.latitude);
+      });
   }
 
+  getForecast(lon: number, lat: number) {
+    this.weatherService.getWeatherData('forecast', lat, lon)
+      .then((res: any) => {
+        if (res.error) {
+          this.showError = true;
+          this.error = res;
+        }
+        else {
+          this.city = res.city.name;
+          this.forecast = res.list;
+        }
+      });
+  }
+
+  ngOnInit() {
+    this.getLocation();
+  }
 }

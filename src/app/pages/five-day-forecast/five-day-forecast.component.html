@@ -1,16 +1,16 @@
-<section *ngIf="forecast">
-  <h3>Forecast for {{ city }}</h3>
-  <div *ngFor="let f of forecast">
-    <p>{{ f.dt_txt | date : 'fullDate' }} {{ f.dt_txt | date : 'shortTime' }}</p>
-    <p class="icon">{{ f.main.temp | tempConverter | number : '1.0-0' }} &deg;F
-      <img src="https://openweathermap.org/img/wn/{{ f.weather[0].icon }}.png"
-           alt="weather icon"><img>
-    </p>
-  </div>
-</section>
 <div *ngIf="showError">
   <p>
     Status: {{ error.status }}:
     {{ error.error.message }} 
   </p>
 </div>
+<section *ngIf="forecast">
+  <h3>Forecast for {{ forecast.city }}</h3>
+  <div *ngFor="let f of forecast.forecast">
+    <app-date [date]="f.date"></app-date>
+    <p class="icon">{{ f.temp | number : '1.0-0' }} &deg;F
+      <img src="https://openweathermap.org/img/wn/{{ f.icon }}.png"
+           alt="weather icon"><img>
+    </p>
+  </div>
+</section>

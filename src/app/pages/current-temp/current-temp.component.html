@@ -3,11 +3,12 @@
   <div *ngIf="currentInfo">
     <p>
       <span>Your area: </span>
-      <span>{{ currentInfo.name }}</span>
+      <span>{{ currentInfo.area }}</span>
     </p>
+    <app-date [date]="currentInfo.date"></app-date>
     <p>
       <span>Temperature: </span>
-      <span>{{ currentInfo.main.temp | tempConverter | number : '1.0-0'}} &deg;F</span>
+      <span>{{ currentInfo.temp | number : '1.0-0'}} &deg;F</span>
     </p>
   </div>
 </section>

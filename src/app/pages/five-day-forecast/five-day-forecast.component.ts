@@ -7,8 +7,7 @@ import { WeatherService } from 'src/app/services/weather.service';
   styleUrls: ['./five-day-forecast.component.css']
 })
 export class FiveDayForecastComponent implements OnInit {
-  public forecast: [] = [];
-  public city: string = null;
+  public forecast: any;
   public error: any = null;
   public showError: boolean = false;
 
@@ -29,8 +28,7 @@ export class FiveDayForecastComponent implements OnInit {
           this.error = res;
         }
         else {
-          this.city = res.city.name;
-          this.forecast = res.list;
+          this.forecast = res;
         }
       });
   }
